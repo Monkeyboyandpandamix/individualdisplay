@@ -26,6 +26,22 @@ public class IndividualDisplay extends Application {
         scene = new Scene(loadFXML("control"), 640, 480);
         stage.setScene(scene);
         stage.show();
+
+
+        //lets build a new stage/scene with ShapePane
+        // and sset it as the root of the scene
+        Stage shapeStage = new Stage();
+        shapeStage.setTitle("Shapes");
+        ShapePane sPane = new ShapePane(640, 480);
+        //instanciate a shapelist and generate shapes
+        ShapeList shapeList = new ShapeList(640, 480);
+        shapeList.generateShapes(10);
+        sPane.setShapeList(shapeList);
+        shapeList.updateShapes(); //update the 
+        Scene shapeScene = new Scene(sPane, 640, 480);
+        shapeStage.setScene(shapeScene);
+        shapeStage.show();
+
     }
 
     static void setRoot(String fxml) throws IOException {
